@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "WA Suggestions",
+  "description": "WA Suggestions is a chrome extension that allows you to get reply suggestions for your messages on WhatsApp Web using OpenAI's GPT-4.",
+  "version": "1.0",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_popup": "settings.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://web.whatsapp.com/*"
+      ],
+      "js": [
+        "content.js",
+        "jquery-3.7.0.min.js",
+        "whatsapp-inject.js"
+      ]
+    }
+  ],
+  "host_permissions": [
+    "https://web.whatsapp.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "style.css",
+        "whatsapp-inject.css"
+      ],
+      "matches": [
+        "https://web.whatsapp.com/*"
+      ]
+    }
+  ],
+  "options_page": "settings.html"
+}

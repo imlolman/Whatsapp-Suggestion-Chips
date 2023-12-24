@@ -1,0 +1,61 @@
+.suggestions {
+    background: var(--background-default);
+    border-left: 1px solid var(--border-list);
+    overflow-x: scroll;
+    white-space: nowrap;
+}
+
+.suggestion {
+    position: relative;
+    padding: 10px;
+    background: var(--filters-item-background);
+    display: inline-block;
+    border-radius: 20px;
+    margin: 10px;
+    color: var(--filters-item-color);
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.suggestion:hover {
+    background: var(--filters-item-background-hover);
+}
+
+.tooltip {
+    display: inline-block;
+    background-color: #555;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    font-size: small; /* Change text size to small */
+
+    /* Position the tooltip above the element */
+    bottom: 100%; /* Adjust as needed to position the tooltip */
+    left: 50%;
+    transform: translateX(-50%) translateY(73px); /* Start from 20px below the final position */
+
+    /* Initial state for the tooltip: invisible and slightly below its final position */
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+/* Add a class or a pseudo-class to represent the final state of the tooltip */
+.tooltip.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(46px); /* End at the final position */
+}
+
+.prompt {
+    outline: none;
+    display: inline-block;
+    width: 800px;
+    border-radius: 20px;
+    margin: 10px 10px 5px;
+    padding: 8px 14px;
+    border-color: var(--filters-item-background-hover);
+    border-style: solid;
+    color: var(--filters-item-color);
+}
